@@ -24,7 +24,7 @@ export default function Contact() {
         `https://themaxhype.com/api/savecontact`,
         data
       );
-      console.log(response.data);
+      // console.log(response.data);
       reset();
       setMessage('');
     } catch (error) {
