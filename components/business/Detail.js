@@ -6,22 +6,24 @@ const Detail = ({ route }) => {
   // console.log();
   const [detail, setDetail] = useState([]);
   const key = route.params.paramKey;
+
+  console.log('hek', key);
   const getdetail = async () => {
-    // console.log('sesdsf');
+    alert('sesdsf');
     try {
       const response = await Axios.get(
         'https://themaxhype.com/api/businesses/' + key
       );
-      console.log(response?.data['businesses']);
+      console.log('response', response?.data['businesses']);
       setDetail(response?.data['businesses']);
     } catch (error) {
       console.error(error);
     }
   };
-  console.log('hek', key);
   useEffect(() => {
     getdetail();
   }, []);
+  console.log('Detail', detail);
 
   return (
     <View>
