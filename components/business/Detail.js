@@ -4,30 +4,29 @@ import { View, Text, FlatList } from 'react-native';
 import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
 const Detail = ({ route }) => {
   // console.log();
-  const [detail, setDetail] = useState();
+  const [detail, setDetail] = useState([]);
   const key = route.params.paramKey;
   const getdetail = async () => {
-    console.log('sesdsf');
+    // console.log('sesdsf');
     try {
       const response = await Axios.get(
         'https://themaxhype.com/api/businesses/' + key
       );
       console.log(response?.data['businesses']);
-      setDetail(response?.data);
+      setDetail(response?.data['businesses']);
     } catch (error) {
       console.error(error);
     }
   };
-  const list = detail ? detail['businesses'] : '';
   console.log('hek', key);
   useEffect(() => {
     getdetail();
-  }, [getdetail]);
+  }, []);
 
   return (
     <View>
       <FlatList
-        data={list}
+        data={detail}
         keyExtractor={({ id }, index) => id}
         renderItem={({ item }) => (
           <Card>
