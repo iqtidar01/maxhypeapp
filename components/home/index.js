@@ -75,7 +75,7 @@ renderItem={({ item }) => <Text>{item.title},</Text>}
   }
   return (
     <SafeAreaView>
-      <ScrollView>
+      <ScrollView style={{ flexGrow: 1 }} nestedScrollEnabled={true}>
         <View style={styles.container}>
           <View>
             <Carousel

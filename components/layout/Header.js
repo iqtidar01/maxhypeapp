@@ -9,6 +9,8 @@ import Contact from '../../components/contact/index';
 import Membership from '../../components/membership/index';
 import { Feather } from '@expo/vector-icons';
 import Detail from '../business/Detail';
+import BusinessDetail from '../business/BusinessDetail';
+import Purchase from '../Purchase/Purchase';
 const Drawer = createDrawerNavigator();
 
 export default function Header() {
@@ -64,6 +66,15 @@ export default function Header() {
           name='Detail'
           component={Detail}
         />
+        <Drawer.Screen
+          options={{
+            drawerIcon: ({ focused, size }) => (
+              <Feather name='file-text' size={20} color='#e91e63' />
+            ),
+          }}
+          name='BusinessDetail'
+          component={BusinessDetail}
+        />
 
         <Drawer.Screen
           options={{
@@ -83,6 +94,15 @@ export default function Header() {
           }}
           name='Test'
           component={Test}
+        />
+        <Drawer.Screen
+          options={{
+            drawerIcon: ({ focused, size }) => (
+              <Feather name='file-plus' size={20} color='#e91e63' />
+            ),
+          }}
+          name='Purchase'
+          component={Purchase}
         />
 
         {/* <Drawer.Screen name="Test" component={Test} /> */}
